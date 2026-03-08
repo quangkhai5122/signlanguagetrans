@@ -80,10 +80,11 @@ export default function Index() {
               <BufferControls />
             </div>
 
-            {/* Right: Status & Predictions */}
+            {/* Right: Status & Predictions & Generated Sentence */}
             <div className="space-y-4">
               <StatusPanel />
               {mode === "manual" && <PredictionsList />}
+              <GeneratedSentence />
             </div>
           </div>
         ) : mode === "text2sign" ? (

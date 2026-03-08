@@ -73,16 +73,16 @@ export default function Index() {
               <CameraCard />
             </div>
 
-            {/* Middle: Buffer & Controls */}
+            {/* Middle: Buffer */}
             <div className="space-y-4">
               <ConfirmingBar />
               <WordBuffer />
-              <BufferControls />
             </div>
 
-            {/* Right: Status & Predictions & Generated Sentence */}
+            {/* Right: Status, Controls & Predictions */}
             <div className="space-y-4">
               <StatusPanel />
+              <BufferControls />
               {mode === "manual" && <PredictionsList />}
               <GeneratedSentence />
             </div>

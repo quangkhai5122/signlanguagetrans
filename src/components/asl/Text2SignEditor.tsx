@@ -23,62 +23,65 @@ export function Text2SignEditor() {
   };
 
   return (
-    <div className="space-y-4">
-      {/* Text Input */}
-      <div className="asl-panel">
-        <div className="asl-panel-header">
-          <h2 className="text-sm font-semibold">English Input</h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {/* Left column: Input + Gloss */}
+      <div className="space-y-4 flex flex-col">
+        {/* Text Input */}
+        <div className="asl-panel">
+          <div className="asl-panel-header">
+            <h2 className="text-sm font-semibold">English Input</h2>
+          </div>
+          <div className="asl-panel-body space-y-3">
+            <Textarea
+              value={input}
+              onChange={e => setInput(e.target.value)}
+              placeholder="Type an English sentence to convert to ASL gloss"
+              className="min-h-[100px] text-base"
+              aria-label="English text input for ASL translation"
+            />
+            <Button className="w-full touch-target" onClick={handleTranslate} aria-label="Translate text to ASL gloss">
+              <ArrowRight className="w-4 h-4 mr-2" aria-hidden="true" />
+              Translate to ASL Gloss
+            </Button>
+          </div>
         </div>
-        <div className="asl-panel-body space-y-3">
-          <Textarea
-            value={input}
-            onChange={e => setInput(e.target.value)}
-            placeholder="Type an English sentence to convert to ASL gloss"
-            className="min-h-[100px] text-base"
-            aria-label="English text input for ASL translation"
-          />
-          <Button className="w-full touch-target" onClick={handleTranslate} aria-label="Translate text to ASL gloss">
-            <ArrowRight className="w-4 h-4 mr-2" aria-hidden="true" />
-            Translate to ASL Gloss
-          </Button>
+
+        {/* Gloss Output - always visible */}
+        <div className="asl-panel flex-1">
+          <div className="asl-panel-header">
+            <h2 className="text-sm font-semibold">Extracted Gloss</h2>
+            {hasTokens && <span className="text-xs text-muted-foreground">{glossTokens.length} tokens</span>}
+          </div>
+          <div className="asl-panel-body">
+            {hasTokens ? (
+              <div className="flex flex-wrap gap-2" role="list" aria-label="ASL gloss tokens">
+                {glossTokens.map((token, i) => (
+                  <span
+                    key={i}
+                    role="listitem"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/10 text-primary font-mono text-sm font-semibold"
+                  >
+                    {token}
+                    <button onClick={() => removeToken(i)} className="hover:text-destructive" aria-label={`Remove ${token}`}>
+                      <X className="w-3.5 h-3.5" />
+                    </button>
+                  </span>
+                ))}
+              </div>
+            ) : (
+              <p className="text-sm text-muted-foreground">Press "Translate to ASL Gloss" to extract tokens.</p>
+            )}
+          </div>
         </div>
       </div>
 
-      {/* Gloss Output - always visible */}
-      <div className="asl-panel">
-        <div className="asl-panel-header">
-          <h2 className="text-sm font-semibold">Extracted Gloss</h2>
-          {hasTokens && <span className="text-xs text-muted-foreground">{glossTokens.length} tokens</span>}
-        </div>
-        <div className="asl-panel-body">
-          {hasTokens ? (
-            <div className="flex flex-wrap gap-2" role="list" aria-label="ASL gloss tokens">
-              {glossTokens.map((token, i) => (
-                <span
-                  key={i}
-                  role="listitem"
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/10 text-primary font-mono text-sm font-semibold"
-                >
-                  {token}
-                  <button onClick={() => removeToken(i)} className="hover:text-destructive" aria-label={`Remove ${token}`}>
-                    <X className="w-3.5 h-3.5" />
-                  </button>
-                </span>
-              ))}
-            </div>
-          ) : (
-            <p className="text-sm text-muted-foreground">Press "Translate to ASL Gloss" to extract tokens.</p>
-          )}
-        </div>
-      </div>
-
-      {/* Animation Preview */}
-      {translated && (
-        <div className="asl-panel animate-slide-up">
+      {/* Right column: Animation Preview */}
+      <div className="flex flex-col">
+        <div className="asl-panel flex-1 flex flex-col">
           <div className="asl-panel-header">
             <h2 className="text-sm font-semibold">Sign Animation Preview</h2>
           </div>
-          <div className="aspect-video bg-foreground/5 rounded-lg overflow-hidden">
+          <div className="flex-1 bg-foreground/5 rounded-lg overflow-hidden min-h-[200px]">
             <SkeletonPreview animated={playing} />
           </div>
           <div className="p-3 flex items-center gap-2 flex-wrap">
@@ -115,7 +118,7 @@ export function Text2SignEditor() {
             </div>
           </div>
         </div>
-      )}
+      </div>
     </div>
   );
 }

@@ -5,17 +5,21 @@ import { Volume2 } from "lucide-react";
 export function GeneratedSentence() {
   const { generatedSentence } = useASL();
 
-  if (!generatedSentence) return null;
-
   return (
-    <div className="asl-panel animate-slide-up mt-0 h-full flex flex-col">
+    <div className="asl-panel mt-0 h-full flex flex-col">
       <div className="asl-panel-header">
         <h2 className="text-sm font-semibold">Generated Sentence</h2>
       </div>
-      <div className="asl-panel-body space-y-3">
-        <p className="text-lg font-medium leading-relaxed">{generatedSentence}</p>
-        <div className="flex items-center gap-2">
-          <Button variant="outline" size="sm" className="touch-target" aria-label="Play audio of generated sentence">
+      <div className="asl-panel-body flex-1 flex flex-col">
+        <div className="flex-1">
+          {generatedSentence ? (
+            <p className="text-lg font-medium leading-relaxed">{generatedSentence}</p>
+          ) : (
+            <p className="text-sm text-muted-foreground italic">Press "Generate Sentence" to create a sentence from the buffer.</p>
+          )}
+        </div>
+        <div className="flex items-center gap-2 pt-3 mt-auto">
+          <Button variant="outline" size="sm" className="touch-target" disabled={!generatedSentence} aria-label="Play audio of generated sentence">
             <Volume2 className="w-4 h-4 mr-1.5" aria-hidden="true" />
             Play Audio
           </Button>

@@ -6,6 +6,14 @@ import { Button } from "@/components/ui/button";
 export function PredictionsList() {
   const { addToBuffer } = useASL();
 
+import { useASL } from "@/context/ASLContext";
+import { MOCK_PREDICTIONS, getConfidenceLevel } from "@/lib/mockData";
+import { Plus } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+export function PredictionsList() {
+  const { addToBuffer, setMode } = useASL();
+
   const handleAdd = (pred: typeof MOCK_PREDICTIONS[0], index: number) => {
     addToBuffer({
       id: `pred-${Date.now()}-${index}`,
@@ -13,6 +21,7 @@ export function PredictionsList() {
       confidence: pred.confidence,
       timestamp: Date.now(),
     });
+    setMode("automatic");
   };
 
   return (

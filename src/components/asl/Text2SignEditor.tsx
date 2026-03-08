@@ -23,9 +23,9 @@ export function Text2SignEditor() {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4" style={{ height: 'calc(100vh - 10rem)' }}>
       {/* Left column: Input + Gloss */}
-      <div className="space-y-4 flex flex-col">
+      <div className="flex flex-col min-h-0">
         {/* Text Input */}
         <div className="asl-panel">
           <div className="asl-panel-header">
@@ -47,12 +47,12 @@ export function Text2SignEditor() {
         </div>
 
         {/* Gloss Output - always visible */}
-        <div className="asl-panel flex-1">
+        <div className="asl-panel flex-1 flex flex-col min-h-0 mt-4">
           <div className="asl-panel-header">
             <h2 className="text-sm font-semibold">Extracted Gloss</h2>
             {hasTokens && <span className="text-xs text-muted-foreground">{glossTokens.length} tokens</span>}
           </div>
-          <div className="asl-panel-body">
+          <div className="asl-panel-body overflow-y-auto flex-1">
             {hasTokens ? (
               <div className="flex flex-wrap gap-2" role="list" aria-label="ASL gloss tokens">
                 {glossTokens.map((token, i) => (
@@ -76,12 +76,12 @@ export function Text2SignEditor() {
       </div>
 
       {/* Right column: Animation Preview */}
-      <div className="flex flex-col">
+      <div className="flex flex-col min-h-0">
         <div className="asl-panel flex-1 flex flex-col">
           <div className="asl-panel-header">
             <h2 className="text-sm font-semibold">Sign Animation Preview</h2>
           </div>
-          <div className="flex-1 bg-foreground/5 rounded-lg overflow-hidden min-h-[200px]">
+          <div className="flex-1 bg-foreground/5 rounded-lg overflow-hidden min-h-0">
             <SkeletonPreview animated={playing} />
           </div>
           <div className="p-3 flex items-center gap-2 flex-wrap">

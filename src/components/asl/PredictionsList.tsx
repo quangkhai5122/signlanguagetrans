@@ -64,9 +64,9 @@ export function PredictionsList() {
 
         })}
       </div>
-      <div className="px-4 pb-3">
-        
-      </div>
+      
+
+      
     </div>);
 
 }

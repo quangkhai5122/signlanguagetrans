@@ -9,6 +9,7 @@ export function Text2SignEditor() {
   const [input, setInput] = useState(MOCK_TEXT2SIGN_INPUT);
   const [glossTokens, setGlossTokens] = useState<string[]>([]);
   const [translated, setTranslated] = useState(false);
+  const hasTokens = glossTokens.length > 0;
   const [playing, setPlaying] = useState(false);
   const [speed, setSpeed] = useState<number>(1);
 

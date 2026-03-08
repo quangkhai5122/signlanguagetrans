@@ -47,7 +47,7 @@ export function Text2SignEditor() {
         </div>
 
         {/* Gloss Output - always visible */}
-        <div className="asl-panel flex-1">
+        <div className="asl-panel flex-1 flex flex-col min-h-0 mt-4">
           <div className="asl-panel-header">
             <h2 className="text-sm font-semibold">Extracted Gloss</h2>
             {hasTokens && <span className="text-xs text-muted-foreground">{glossTokens.length} tokens</span>}

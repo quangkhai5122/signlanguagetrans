@@ -36,7 +36,7 @@ export function Text2SignEditor() {
               value={input}
               onChange={e => setInput(e.target.value)}
               placeholder="Type an English sentence to convert to ASL gloss"
-              className="min-h-[100px] text-base"
+              className="min-h-[80px] max-h-[80px] text-base resize-none"
               aria-label="English text input for ASL translation"
             />
             <Button className="w-full touch-target" onClick={handleTranslate} aria-label="Translate text to ASL gloss">

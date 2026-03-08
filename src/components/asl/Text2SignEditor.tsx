@@ -81,7 +81,7 @@ export function Text2SignEditor() {
           <div className="asl-panel-header">
             <h2 className="text-sm font-semibold">Sign Animation Preview</h2>
           </div>
-          <div className="flex-1 bg-foreground/5 rounded-lg overflow-hidden min-h-[200px]">
+          <div className="flex-1 bg-foreground/5 rounded-lg overflow-hidden min-h-0">
             <SkeletonPreview animated={playing} />
           </div>
           <div className="p-3 flex items-center gap-2 flex-wrap">

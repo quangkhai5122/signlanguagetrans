@@ -66,33 +66,36 @@ export default function Index() {
 
         {/* Mode-specific layouts */}
         {showCameraColumn && showMiddleColumn ? (
-        /* Automatic & Manual: 3-column layout */
-        <div className="space-y-4">
-          <div className="grid grid-cols-1 lg:grid-cols-[50%_25%_25%] gap-4">
+        /* Automatic & Manual: 2-area layout - Camera left, controls right */
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             {/* Left: Camera */}
-            <div className="space-y-4">
+            <div>
               <CameraCard />
             </div>
 
-            {/* Middle: Buffer */}
-            <div className="space-y-4">
-              <ConfirmingBar />
-              <WordBuffer />
-            </div>
+            {/* Right: Everything else, with GeneratedSentence pushed to bottom */}
+            <div className="flex flex-col justify-between h-full">
+              <div className="grid grid-cols-2 gap-4">
+                {/* Middle: Buffer */}
+                <div className="space-y-4">
+                  <ConfirmingBar />
+                  <WordBuffer />
+                </div>
 
-            {/* Right: Status, Controls & Predictions */}
-            <div className="space-y-4">
-              <StatusPanel />
-              <BufferControls />
-              {mode === "manual" && <PredictionsList />}
-            </div>
-          </div>
+                {/* Right: Status, Controls & Predictions */}
+                <div className="space-y-4">
+                  <StatusPanel />
+                  <BufferControls />
+                  {mode === "manual" && <PredictionsList />}
+                </div>
+              </div>
 
-          {/* Generated Sentence spanning middle + right columns */}
-          <div className="lg:ml-[50%] lg:pl-4">
-            <GeneratedSentence />
-          </div>
-        </div>) :
+              {/* Generated Sentence spanning full width, bottom-aligned with camera */}
+              <div className="mt-4">
+                <GeneratedSentence />
+              </div>
+            </div>
+          </div>) :
         mode === "text2sign" ? (
         /* Text2Sign: 2-column */
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">

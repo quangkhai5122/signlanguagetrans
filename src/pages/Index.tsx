@@ -78,14 +78,14 @@ export default function Index() {
               <div className="grid grid-cols-2 gap-4">
                 {/* Left: Predictions (manual) or Buffer (automatic) */}
                 <div className="space-y-4">
-                  {mode === "manual" ? (
-                    <PredictionsList />
-                  ) : (
-                    <>
+                  {mode === "manual" ?
+                <PredictionsList /> :
+
+                <>
                       <ConfirmingBar />
                       <WordBuffer />
                     </>
-                  )}
+                }
                 </div>
 
                 {/* Right: Status & Controls */}
@@ -103,7 +103,7 @@ export default function Index() {
           </div>) :
         mode === "text2sign" ? (
         /* Text2Sign: 2-column */
-        <div>
+        <div className="mb-0">
             <Text2SignEditor />
           </div>) :
         mode === "dictionary" ? (

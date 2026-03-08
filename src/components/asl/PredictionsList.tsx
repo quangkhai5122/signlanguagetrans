@@ -4,7 +4,7 @@ import { Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function PredictionsList() {
-  const { addToBuffer } = useASL();
+  const { addToBuffer, setMode } = useASL();
 
   const handleAdd = (pred: typeof MOCK_PREDICTIONS[0], index: number) => {
     addToBuffer({
@@ -13,6 +13,7 @@ export function PredictionsList() {
       confidence: pred.confidence,
       timestamp: Date.now(),
     });
+    setMode("automatic");
   };
 
   return (

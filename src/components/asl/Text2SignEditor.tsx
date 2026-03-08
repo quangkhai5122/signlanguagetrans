@@ -23,7 +23,7 @@ export function Text2SignEditor() {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4" style={{ height: 'calc(100vh - 10rem)' }}>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4" style={{ height: 'calc(100vh - 11.5rem)' }}>
       {/* Left column: Input + Gloss */}
       <div className="flex flex-col min-h-0">
         {/* Text Input */}
@@ -36,7 +36,7 @@ export function Text2SignEditor() {
               value={input}
               onChange={e => setInput(e.target.value)}
               placeholder="Type an English sentence to convert to ASL gloss"
-              className="min-h-[100px] text-base"
+              className="min-h-[80px] max-h-[80px] text-base resize-none"
               aria-label="English text input for ASL translation"
             />
             <Button className="w-full touch-target" onClick={handleTranslate} aria-label="Translate text to ASL gloss">
@@ -77,7 +77,7 @@ export function Text2SignEditor() {
 
       {/* Right column: Animation Preview */}
       <div className="flex flex-col min-h-0">
-        <div className="asl-panel flex-1 flex flex-col">
+        <div className="asl-panel flex-1 flex flex-col min-h-0">
           <div className="asl-panel-header">
             <h2 className="text-sm font-semibold">Sign Animation Preview</h2>
           </div>

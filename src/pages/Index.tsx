@@ -76,17 +76,22 @@ export default function Index() {
             {/* Right: Everything else, with GeneratedSentence pushed to bottom */}
             <div className="flex flex-col gap-4 h-full">
               <div className="grid grid-cols-2 gap-4">
-                {/* Middle: Buffer */}
+                {/* Left: Predictions (manual) or Buffer (automatic) */}
                 <div className="space-y-4">
-                  <ConfirmingBar />
-                  <WordBuffer />
+                  {mode === "manual" ? (
+                    <PredictionsList />
+                  ) : (
+                    <>
+                      <ConfirmingBar />
+                      <WordBuffer />
+                    </>
+                  )}
                 </div>
 
-                {/* Right: Status, Controls & Predictions */}
+                {/* Right: Status & Controls */}
                 <div className="space-y-4">
                   <StatusPanel />
                   <BufferControls />
-                  {mode === "manual" && <PredictionsList />}
                 </div>
               </div>
 

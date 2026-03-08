@@ -52,7 +52,7 @@ export function Text2SignEditor() {
             <h2 className="text-sm font-semibold">Extracted Gloss</h2>
             {hasTokens && <span className="text-xs text-muted-foreground">{glossTokens.length} tokens</span>}
           </div>
-          <div className="asl-panel-body">
+          <div className="asl-panel-body overflow-y-auto flex-1">
             {hasTokens ? (
               <div className="flex flex-wrap gap-2" role="list" aria-label="ASL gloss tokens">
                 {glossTokens.map((token, i) => (

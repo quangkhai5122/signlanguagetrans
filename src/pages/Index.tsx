@@ -74,7 +74,7 @@ export default function Index() {
             </div>
 
             {/* Right: Everything else, with GeneratedSentence pushed to bottom */}
-            <div className="flex flex-col justify-between h-full">
+            <div className="flex flex-col gap-4 h-full">
               <div className="grid grid-cols-2 gap-4">
                 {/* Middle: Buffer */}
                 <div className="space-y-4">
@@ -90,10 +90,8 @@ export default function Index() {
                 </div>
               </div>
 
-              {/* Generated Sentence spanning full width, bottom-aligned with camera */}
-              <div className="mt-4">
-                <GeneratedSentence />
-              </div>
+              {/* Generated Sentence spanning full width */}
+              <GeneratedSentence />
             </div>
           </div>) :
         mode === "text2sign" ? (

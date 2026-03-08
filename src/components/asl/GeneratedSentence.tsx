@@ -8,7 +8,7 @@ export function GeneratedSentence() {
   if (!generatedSentence) return null;
 
   return (
-    <div className="asl-panel animate-slide-up mt-0">
+    <div className="asl-panel animate-slide-up mt-0 h-full flex flex-col">
       <div className="asl-panel-header">
         <h2 className="text-sm font-semibold">Generated Sentence</h2>
       </div>

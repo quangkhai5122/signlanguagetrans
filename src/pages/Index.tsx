@@ -90,8 +90,10 @@ export default function Index() {
                 </div>
               </div>
 
-              {/* Generated Sentence spanning full width */}
-              <GeneratedSentence />
+              {/* Generated Sentence spanning full width, stretching to match camera bottom */}
+              <div className="flex-1">
+                <GeneratedSentence />
+              </div>
             </div>
           </div>) :
         mode === "text2sign" ? (

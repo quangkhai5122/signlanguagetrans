@@ -64,7 +64,7 @@ export const MOCK_DICTIONARY: DictionaryEntry[] = [
 export const MOCK_TEXT2SIGN_INPUT = "I study at science and technology university";
 export const MOCK_TEXT2SIGN_GLOSS = ["I", "STUDY", "SCIENCE", "TECHNOLOGY", "UNIVERSITY"];
 
-export const MOCK_GENERATED_SENTENCE = "Grandma read story before bed.";
+export const MOCK_GENERATED_SENTENCE = "No, I want to move Generate Sentence";
 
 export const SKELETON_JOINTS = [
   // Simple stick figure joint positions (normalized 0-1)

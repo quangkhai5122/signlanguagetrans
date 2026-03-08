@@ -11,7 +11,7 @@ export function PredictionsList() {
       id: `pred-${Date.now()}-${index}`,
       gloss: pred.gloss,
       confidence: pred.confidence,
-      timestamp: Date.now(),
+      timestamp: Date.now()
     });
     setMode("automatic");
   };
@@ -29,8 +29,8 @@ export function PredictionsList() {
             <div
               key={i}
               role="listitem"
-              className="flex items-center gap-3 p-2 rounded-lg hover:bg-muted/50 transition-colors group"
-            >
+              className="flex items-center gap-3 p-2 rounded-lg hover:bg-muted/50 transition-colors group">
+              
               <span className="kbd">{i + 1}</span>
               <div className="w-10 h-10 rounded-md bg-muted flex items-center justify-center flex-shrink-0">
                 <span className="text-[10px] text-muted-foreground">GIF</span>
@@ -41,10 +41,10 @@ export function PredictionsList() {
                   <div className="flex-1 h-1.5 rounded-full bg-muted overflow-hidden">
                     <div
                       className={`h-full rounded-full transition-all ${
-                        level === "high" ? "bg-success" : level === "medium" ? "bg-warning" : "bg-destructive"
-                      }`}
-                      style={{ width: `${pred.confidence * 100}%` }}
-                    />
+                      level === "high" ? "bg-success" : level === "medium" ? "bg-warning" : "bg-destructive"}`
+                      }
+                      style={{ width: `${pred.confidence * 100}%` }} />
+                    
                   </div>
                   <span className={`confidence-chip confidence-${level}`}>
                     {(pred.confidence * 100).toFixed(0)}%
@@ -56,17 +56,17 @@ export function PredictionsList() {
                 variant="outline"
                 className="h-8 w-8 touch-target opacity-60 group-hover:opacity-100 transition-opacity"
                 onClick={() => handleAdd(pred, i)}
-                aria-label={`Add ${pred.gloss} to buffer`}
-              >
+                aria-label={`Add ${pred.gloss} to buffer`}>
+                
                 <Plus className="w-4 h-4" aria-hidden="true" />
               </Button>
-            </div>
-          );
+            </div>);
+
         })}
       </div>
       <div className="px-4 pb-3">
-        <p className="text-[10px] text-muted-foreground">Press <span className="kbd">1</span>–<span className="kbd">5</span> to add · <span className="kbd">Esc</span> to cancel</p>
+        
       </div>
-    </div>
-  );
+    </div>);
+
 }

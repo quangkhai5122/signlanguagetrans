@@ -23,7 +23,7 @@ export function Text2SignEditor() {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4" style={{ height: 'calc(100vh - 10rem)' }}>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4" style={{ height: 'calc(100vh - 11.5rem)' }}>
       {/* Left column: Input + Gloss */}
       <div className="flex flex-col min-h-0">
         {/* Text Input */}

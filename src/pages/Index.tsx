@@ -5,6 +5,7 @@ import { WordBuffer } from "@/components/asl/WordBuffer";
 import { BufferControls } from "@/components/asl/BufferControls";
 import { PredictionsList } from "@/components/asl/PredictionsList";
 import { StatusPanel } from "@/components/asl/StatusPanel";
+import { GeneratedSentence } from "@/components/asl/GeneratedSentence";
 import { Text2SignEditor } from "@/components/asl/Text2SignEditor";
 import { DictionarySearch } from "@/components/asl/DictionarySearch";
 import { SettingsModal } from "@/components/asl/SettingsModal";
@@ -79,10 +80,11 @@ export default function Index() {
               <BufferControls />
             </div>
 
-            {/* Right: Status & Predictions */}
+            {/* Right: Status & Predictions & Generated Sentence */}
             <div className="space-y-4">
               <StatusPanel />
               {mode === "manual" && <PredictionsList />}
+              <GeneratedSentence />
             </div>
           </div>
         ) : mode === "text2sign" ? (

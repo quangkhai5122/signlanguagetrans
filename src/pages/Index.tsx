@@ -67,20 +67,20 @@ export default function Index() {
         {/* Mode-specific layouts */}
         {showCameraColumn && showMiddleColumn ? (
         /* Automatic & Manual: 3-column layout */
-        <div className="grid grid-cols-1 lg:grid-cols-[55%_25%_20%] gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-[50%_25%_25%] gap-4">
             {/* Left: Camera */}
             <div className="space-y-4">
               <CameraCard />
             </div>
 
             {/* Middle: Buffer */}
-            <div className="space-y-4 mr-[48px] mb-0 mt-0">
+            <div className="space-y-4">
               <ConfirmingBar />
               <WordBuffer />
             </div>
 
             {/* Right: Status, Controls & Predictions */}
-            <div className="space-y-4 ml-0 mr-[33px] pl-0 pr-0 pt-0 mt-0">
+            <div className="space-y-4">
               <StatusPanel />
               <BufferControls />
               {mode === "manual" && <PredictionsList />}

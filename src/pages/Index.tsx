@@ -67,26 +67,32 @@ export default function Index() {
         {/* Mode-specific layouts */}
         {showCameraColumn && showMiddleColumn ? (
         /* Automatic & Manual: 3-column layout */
-        <div className="grid grid-cols-1 lg:grid-cols-[55%_25%_20%] gap-4">
+        <div className="space-y-4">
+          <div className="grid grid-cols-1 lg:grid-cols-[50%_25%_25%] gap-4">
             {/* Left: Camera */}
             <div className="space-y-4">
               <CameraCard />
             </div>
 
             {/* Middle: Buffer */}
-            <div className="space-y-4 mb-0 mr-0 mt-0">
+            <div className="space-y-4">
               <ConfirmingBar />
               <WordBuffer />
             </div>
 
             {/* Right: Status, Controls & Predictions */}
-            <div className="space-y-4 mr-[33px] pt-0 pl-0 ml-0 pr-0 mt-0">
+            <div className="space-y-4">
               <StatusPanel />
               <BufferControls />
               {mode === "manual" && <PredictionsList />}
-              <GeneratedSentence />
             </div>
-          </div>) :
+          </div>
+
+          {/* Generated Sentence spanning middle + right columns */}
+          <div className="lg:ml-[50%] lg:pl-4">
+            <GeneratedSentence />
+          </div>
+        </div>) :
         mode === "text2sign" ? (
         /* Text2Sign: 2-column */
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">

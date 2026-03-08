@@ -40,8 +40,8 @@ export default function Index() {
               size="icon"
               className="touch-target"
               onClick={() => setOnboardingOpen(true)}
-              aria-label="Show setup guide"
-            >
+              aria-label="Show setup guide">
+              
               <HelpCircle className="w-5 h-5" />
             </Button>
             <Button
@@ -49,8 +49,8 @@ export default function Index() {
               size="icon"
               className="touch-target"
               onClick={() => setSettingsOpen(true)}
-              aria-label="Open settings"
-            >
+              aria-label="Open settings">
+              
               <Settings className="w-5 h-5" />
             </Button>
           </div>
@@ -66,43 +66,43 @@ export default function Index() {
 
         {/* Mode-specific layouts */}
         {showCameraColumn && showMiddleColumn ? (
-          /* Automatic & Manual: 3-column layout */
-          <div className="grid grid-cols-1 lg:grid-cols-[55%_25%_20%] gap-4">
+        /* Automatic & Manual: 3-column layout */
+        <div className="grid grid-cols-1 lg:grid-cols-[55%_25%_20%] gap-4">
             {/* Left: Camera */}
             <div className="space-y-4">
               <CameraCard />
             </div>
 
             {/* Middle: Buffer */}
-            <div className="space-y-4">
+            <div className="space-y-4 mr-[48px] mb-0 mt-0">
               <ConfirmingBar />
               <WordBuffer />
             </div>
 
             {/* Right: Status, Controls & Predictions */}
-            <div className="space-y-4">
+            <div className="space-y-4 ml-0 mr-[33px] pl-0 pr-0 pt-0 mt-0">
               <StatusPanel />
               <BufferControls />
               {mode === "manual" && <PredictionsList />}
               <GeneratedSentence />
             </div>
-          </div>
-        ) : mode === "text2sign" ? (
-          /* Text2Sign: 2-column */
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          </div>) :
+        mode === "text2sign" ? (
+        /* Text2Sign: 2-column */
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             <Text2SignEditor />
-          </div>
-        ) : mode === "dictionary" ? (
-          /* Dictionary: centered */
-          <div className="max-w-2xl mx-auto">
+          </div>) :
+        mode === "dictionary" ? (
+        /* Dictionary: centered */
+        <div className="max-w-2xl mx-auto">
             <DictionarySearch />
-          </div>
-        ) : null}
+          </div>) :
+        null}
       </main>
 
       {/* Modals */}
       <SettingsModal />
       <OnboardingModal />
-    </div>
-  );
+    </div>);
+
 }

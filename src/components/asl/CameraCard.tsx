@@ -68,15 +68,6 @@ export function CameraCard() {
           {showSkeleton ? <Eye className="w-4 h-4" aria-hidden="true" /> : <EyeOff className="w-4 h-4" aria-hidden="true" />}
         </Button>
       </div>
-      {/* Mini skeleton preview below camera */}
-      {cameraActive &&
-      <div className="border-t border-border p-3">
-          <p className="text-xs text-muted-foreground mb-2">Skeleton Preview</p>
-          <div className="h-32 bg-foreground/5 rounded-lg overflow-hidden">
-            <SkeletonPreview animated />
-          </div>
-        </div>
-      }
     </div>);
 
 }

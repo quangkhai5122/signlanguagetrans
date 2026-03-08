@@ -5,6 +5,7 @@ import { WordBuffer } from "@/components/asl/WordBuffer";
 import { BufferControls } from "@/components/asl/BufferControls";
 import { PredictionsList } from "@/components/asl/PredictionsList";
 import { StatusPanel } from "@/components/asl/StatusPanel";
+import { GeneratedSentence } from "@/components/asl/GeneratedSentence";
 import { Text2SignEditor } from "@/components/asl/Text2SignEditor";
 import { DictionarySearch } from "@/components/asl/DictionarySearch";
 import { SettingsModal } from "@/components/asl/SettingsModal";

@@ -22,7 +22,7 @@ export function PredictionsList() {
         <h2 className="text-sm font-semibold">Top 5 Predictions</h2>
         <span className="text-xs text-muted-foreground">Manual Mode</span>
       </div>
-      <div className="asl-panel-body space-y-2" role="list" aria-label="Top 5 sign predictions">
+      <div className="asl-panel-body space-y-2 max-h-64 overflow-y-auto" role="list" aria-label="Top 5 sign predictions">
         {MOCK_PREDICTIONS.map((pred, i) => {
           const level = getConfidenceLevel(pred.confidence);
           return (

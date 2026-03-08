@@ -9,6 +9,7 @@ export function Text2SignEditor() {
   const [input, setInput] = useState(MOCK_TEXT2SIGN_INPUT);
   const [glossTokens, setGlossTokens] = useState<string[]>([]);
   const [translated, setTranslated] = useState(false);
+  const hasTokens = glossTokens.length > 0;
   const [playing, setPlaying] = useState(false);
   const [speed, setSpeed] = useState<number>(1);
 
@@ -43,14 +44,14 @@ export function Text2SignEditor() {
         </div>
       </div>
 
-      {/* Gloss Output */}
-      {translated && (
-        <div className="asl-panel animate-slide-up">
-          <div className="asl-panel-header">
-            <h2 className="text-sm font-semibold">Extracted Gloss</h2>
-            <span className="text-xs text-muted-foreground">{glossTokens.length} tokens</span>
-          </div>
-          <div className="asl-panel-body">
+      {/* Gloss Output - always visible */}
+      <div className="asl-panel">
+        <div className="asl-panel-header">
+          <h2 className="text-sm font-semibold">Extracted Gloss</h2>
+          {hasTokens && <span className="text-xs text-muted-foreground">{glossTokens.length} tokens</span>}
+        </div>
+        <div className="asl-panel-body">
+          {hasTokens ? (
             <div className="flex flex-wrap gap-2" role="list" aria-label="ASL gloss tokens">
               {glossTokens.map((token, i) => (
                 <span
@@ -65,9 +66,11 @@ export function Text2SignEditor() {
                 </span>
               ))}
             </div>
-          </div>
+          ) : (
+            <p className="text-sm text-muted-foreground">Press "Translate to ASL Gloss" to extract tokens.</p>
+          )}
         </div>
-      )}
+      </div>
 
       {/* Animation Preview */}
       {translated && (

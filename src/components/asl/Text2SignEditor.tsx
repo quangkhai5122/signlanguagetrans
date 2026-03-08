@@ -76,7 +76,7 @@ export function Text2SignEditor() {
       </div>
 
       {/* Right column: Animation Preview */}
-      <div className="flex flex-col">
+      <div className="flex flex-col min-h-0">
         <div className="asl-panel flex-1 flex flex-col">
           <div className="asl-panel-header">
             <h2 className="text-sm font-semibold">Sign Animation Preview</h2>
